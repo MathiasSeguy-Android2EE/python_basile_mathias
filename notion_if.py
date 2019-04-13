@@ -1,11 +1,24 @@
 #IsToto
 
-def isToto(name):
+def isSameName(nameInitial,nameToCompare):
     # print("Instead of comparing "+name+" let's compare "+name.lower())
-    if "toto" in name.lower() :
-        print (name+" Il s'apelle toto")
+    if nameInitial.lower() in nameToCompare.lower() and nameToCompare.lower() in nameInitial.lower():
+        print (nameToCompare+": Il s'apelle "+nameInitial)
     else:
-        print (name+" C'est pas toto")
+        print (nameToCompare+": C'est pas "+nameInitial)
+
+
+def isToto(name):
+    isSameName("toTo",name)
+
+def isTotoro(name):
+    isSameName("toToro",name)
+
+def isMathias(name):
+    isSameName("mathias",name)
+
+def isBasile(name):
+    isSameName("basile",name)
 
 def testIsToto():
     isToto("John")
@@ -16,5 +29,13 @@ def testIsToto():
     isToto("tata")
 
 #Ask Question
-nameToCheck=input("Quel est le nom que tu veux comparer ?")
-isToto(nameToCheck)
+keepAsking=True
+while(keepAsking):
+    nameToCheck=input("Quel est le nom que tu veux comparer (or quit) ? ")
+    if("quit" in nameToCheck):
+        keepAsking=False
+    else:
+        isToto(nameToCheck)
+        isTotoro(nameToCheck)
+        isMathias(nameToCheck)
+        isBasile(nameToCheck)
